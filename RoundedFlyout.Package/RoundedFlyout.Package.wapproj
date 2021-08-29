@@ -81,4 +81,11 @@
       <SkipGetTargetFrameworkProperties>True</SkipGetTargetFrameworkProperties>
     </ProjectReference>
   </ItemGroup>
+	<Target Name="FixPayload" BeforeTargets="_GenerateAppxUploadPackageFile" Returns="@(AppxUploadPackagePayload)">
+		<ItemGroup>
+			<_FilteredAppxPackagePayload Include="@(AppxUploadPackagePayload)" Condition="'%(AppxUploadPackagePayload.TargetPath)'=='Microsoft.UI.Xaml.winmd'" />
+			<_AppxPackagePayloadToRemove Include="@(_FilteredAppxPackagePayload)" Condition="'%(_FilteredAppxPackagePayload.ProjectName)'==''" />
+			<AppxUploadPackagePayload Remove="@(_AppxPackagePayloadToRemove)" />
+		</ItemGroup>
+	</Target>
 </Project>
