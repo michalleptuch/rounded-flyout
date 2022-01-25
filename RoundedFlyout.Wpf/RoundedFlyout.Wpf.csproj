@@ -7,6 +7,7 @@
 		<Platforms>x86;x64</Platforms>
 		<AssetTargetFallback>uap10.0.18362</AssetTargetFallback>
 		<StartupObject>RoundedFlyout.Wpf.Program</StartupObject>
+    <ErrorOnDuplicatePublishOutputFiles>false</ErrorOnDuplicatePublishOutputFiles>
 	</PropertyGroup>
 
 	<ItemGroup>
